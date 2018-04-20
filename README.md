@@ -35,3 +35,7 @@ tilelive.load('somewhere://path/to/some/tiles', function (err, source) {
 ## In Browser
 
 See an example of using tilelive-tar with StreamSaver.js to download tiles without touching the server, at [karissa/tile-download-ui](https://github.com/karissa/tile-download-ui).
+
+## License
+
+MIT
