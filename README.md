@@ -1,10 +1,12 @@
 # tilelive-tar
 
-A tar sink for tilelive. 
+A tar sink for tilelive that is browser-compatible. 
 
 ```
 npm install tilelive-tar
 ```
+
+Provide `tar://<dir>.<ext>` to download and pack all the tiles in the tar under the given directory. Files will be saved according to the provided extension name.
 
 ## Usage
 
@@ -29,3 +31,7 @@ tilelive.load('somewhere://path/to/some/tiles', function (err, source) {
   })
 })
 ```
+
+## In Browser
+
+See an example of using tilelive-tar with StreamSaver.js to download tiles without touching the server, at [karissa/tile-download-ui](https://github.com/karissa/tile-download-ui).
