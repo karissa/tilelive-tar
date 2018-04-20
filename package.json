@@ -1,6 +1,6 @@
 {
   "name": "tilelive-tar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tar sink for tilelive",
   "main": "index.js",
   "scripts": {
