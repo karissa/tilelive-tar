@@ -9,9 +9,9 @@ function TarBackend (uri, callback) {
   if (typeof uri === 'string') uri = url.parse(uri, true);
   else if (typeof uri.query === 'string') uri.query = qs.parse(uri.query);
   uri.query = uri.query || {};
-  this.basepath = 'download';
+  this.filetype = path.extname(uri.host) || 'png'
+  this.basepath = uri.hostname.substring(0, uri.hostname.indexOf(this.filetype))
   this.safe = uri.query.safe === 'true';
-  this.filetype = uri.query.filetype || 'png';
   this.pack = tar.pack()
   callback(null, this)
   return undefined

@@ -15,7 +15,7 @@ TarBackend.registerProtocols(tilelive)
 
 tilelive.load('somewhere://path/to/some/tiles', function (err, source) {
   if (err) throw err
-  tilelive.load('tar://download.png', function (err, sink) {
+  tilelive.load('tar://tiles.png', function (err, sink) {
     if (err) throw err
     var readStream = source.createReadStream({minzoom, maxzoom, bounds})
     var writeStream = sink.createWriteStream()

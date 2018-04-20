@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/karissa/tilelive-tar/issues"
   },
-  "homepage": "https://github.com/karissa/tilelive-tar#readme"
+  "homepage": "https://github.com/karissa/tilelive-tar#readme",
+  "dependencies": {
+    "tar-stream": "^1.5.5"
+  }
 }
