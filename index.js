@@ -10,7 +10,6 @@ function TarBackend (uri, callback) {
   else if (typeof uri.query === 'string') uri.query = qs.parse(uri.query);
   uri.query = uri.query || {};
   this.filetype = path.extname(uri.host) || '.png'
-  this.basepath = uri.hostname.substring(0, uri.hostname.indexOf(this.filetype))
   this.safe = uri.query.safe === 'true';
   this.pack = tar.pack()
   callback(null, this)
@@ -26,9 +25,9 @@ TarBackend.prototype.getPath = function(z, x, y, ext) {
     var col = String("000000" + x).slice(String(x).length);
     var row = String("000000" + y).slice(String(y).length);
 
-    return path.join(this.basepath, String(z), col.slice(0, 3), col.slice(3, 6), row.slice(0, 3), row.slice(3, 6) + ext);
+    return path.join(String(z), col.slice(0, 3), col.slice(3, 6), row.slice(0, 3), row.slice(3, 6) + ext);
   } else {
-    return path.join(this.basepath, String(z), String(x), String(y) + ext);
+    return path.join(String(z), String(x), String(y) + ext);
   }
 }
 
@@ -54,7 +53,7 @@ TarBackend.prototype.stopWriting = function(callback) {
 
 TarBackend.prototype.putInfo = function(info, callback) {
   var data = JSON.stringify(info)
-  this.pack.entry({name: path.join(this.basepath, 'metadata.json')}, data, callback)
+  this.pack.entry({name: 'metadata.json'}, data, callback)
 }
 
 TarBackend.prototype.putTile = function(z, x, y, tile, callback) {
